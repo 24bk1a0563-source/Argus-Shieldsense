@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShieldSense - Your Gmail, protected by AI</title>
+  <meta name="description" content="ShieldSense automatically analyzes your Gmail emails, links, and attachments with AI security analysis and risk-based segregation.">
+  
+  <!-- Typography Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       GLOBAL PERSISTENT SITE HEADER
+       ========================================== -->
+  <header class="site-header" id="app-site-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#dashboard" class="brand-logo" id="top-nav-logo" title="Go to ShieldSense Dashboard">
+          <div class="brand-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>ShieldSense</h1>
+            <span class="tagline">Your Digital Inbox, Guarded by Smart AI</span>
+          </div>
+        </a>
+
+        <!-- Top Navigation Menu -->
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#dashboard" class="nav-link" id="nav-link-dashboard">Dashboard</a></li>
+            <li><a href="#how-it-works" class="nav-link" id="nav-link-how-it-works">How It Works</a></li>
+            <li><a href="#threat-inbox" class="nav-link highlight-threats" id="nav-link-threat-inbox">Threat Inbox</a></li>
+            <li><a href="#risk-analysis" class="nav-link" id="nav-link-risk-analysis">Risk Analysis</a></li>
+            <li><a href="#pricing" class="nav-link" id="nav-link-pricing">Pricing</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-controls">
+          <button class="btn-icon" id="sound-toggle-btn" title="Toggle Audio FX" aria-label="Toggle Sound">
+            <svg class="sound-on-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+            <svg class="sound-off-svg" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+          </button>
+
+          <button class="btn-connect-gmail btn-trigger-connect-gmail" id="top-nav-connect-btn" style="padding: 9px 18px; font-size: 0.86rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            Connect Gmail →
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       VIEW 1: LANDING PAGE
+       ========================================== -->
+  <div id="view-landing" class="app-view active">
+    <main class="container">
+      
+      <!-- HERO / OVERVIEW SECTION -->
+      <section class="hero-section" id="overview">
+        <div class="hero-grid">
+          
+          <div class="hero-left">
+            <div class="hero-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+              <span>Next-Gen Gmail Threat Intelligence</span>
+            </div>
+
+            <h2 class="hero-heading">
+              Your Gmail, <span class="highlight-cyan">protected by AI</span>.
+            </h2>
+
+            <p class="hero-subtext">
+              ShieldSense automatically analyzes your emails, links, and attachments to detect suspicious activity before it becomes a threat.
+            </p>
+
+            <div class="hero-cta-group">
+              <button class="btn-connect-gmail btn-trigger-connect-gmail">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                Connect Gmail →
+              </button>
+
+              <a href="#how-it-works" class="btn-secondary-link">
+                See How It Works
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <div class="trust-indicators-row">
+              <div class="trust-item"><span class="trust-check">✓</span><span>Emails analyzed</span></div>
+              <div class="trust-item"><span class="trust-check">✓</span><span>Links analyzed</span></div>
+              <div class="trust-item"><span class="trust-check">✓</span><span>Attachments analyzed</span></div>
+              <div class="trust-item"><span class="trust-check">✓</span><span>Risk-based segregation</span></div>
+            </div>
+          </div>
+
+          <!-- Hero Right Product Visual Preview -->
+          <div class="hero-right">
+            <div class="hero-product-preview-card">
+              <div class="preview-card-header">
+                <div class="preview-brand-tag">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-cyan)" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                  <span>ShieldSense Security</span>
+                </div>
+                <div class="preview-live-indicator">
+                  <span class="status-dot"></span>
+                  <span>Active Protection</span>
+                </div>
+              </div>
+
+              <div class="preview-inbox-stats">
+                <div class="inbox-stat-item">
+                  <span class="stat-item-label dangerous">🔴 Dangerous</span>
+                  <span class="stat-item-count" id="hero-preview-dangerous">3</span>
+                </div>
+                <div class="inbox-stat-item">
+                  <span class="stat-item-label suspicious">🟠 Suspicious</span>
+                  <span class="stat-item-count" id="hero-preview-suspicious">5</span>
+                </div>
+                <div class="inbox-stat-item">
+                  <span class="stat-item-label safe">🟢 Safe</span>
+                  <span class="stat-item-count" id="hero-preview-safe">6</span>
+                </div>
+                <div class="inbox-stat-item">
+                  <span class="stat-item-label quarantine">🛡 Quarantine</span>
+                  <span class="stat-item-count" id="hero-preview-quarantine">1</span>
+                </div>
+              </div>
+
+              <div class="preview-email-card">
+                <div class="preview-email-meta">
+                  <div class="preview-email-sender">
+                    <span>From:</span>
+                    <strong>security@example-warning.com</strong>
+                  </div>
+                  <div class="preview-risk-badge">
+                    94/100 — HIGH RISK
+                  </div>
+                </div>
+
+                <div class="preview-email-subject">
+                  "Urgent: Verify your account"
+                </div>
+
+                <div class="preview-signals-list">
+                  <div class="preview-signal-item"><span class="signal-check">✓</span><span>Sender analyzed</span></div>
+                  <div class="preview-signal-item"><span class="signal-check">✓</span><span>Message intent analyzed</span></div>
+                  <div class="preview-signal-item"><span class="signal-check">✓</span><span>Link analyzed</span></div>
+                  <div class="preview-signal-item"><span class="signal-check">✓</span><span>Attachment analyzed</span></div>
+                </div>
+
+                <div class="preview-action-banner">
+                  <div><span style="font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; font-weight:700;">RECOMMENDED ACTION</span></div>
+                  <div class="preview-action-btn"><span>🛡 QUARANTINE</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS & FEATURES SECTION -->
+      <section class="how-it-works-section" id="how-it-works">
+        <div style="margin-bottom: 24px;" id="features">
+          <h2 style="font-size: 1.7rem; font-weight:800; color:var(--text-bright);">How ShieldSense Works</h2>
+          <p style="font-size: 0.9rem; color:var(--text-muted); margin-top:4px;">The 5-stage automated defense lifecycle starting from your Gmail account.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap:16px;">
+          <div class="pipeline-card">
+            <span class="pipeline-step-badge">STAGE 01</span>
+            <h4>1. Connect Gmail</h4>
+            <p>Securely connect your Gmail account to open the ShieldSense Connected Dashboard.</p>
+          </div>
+          <div class="pipeline-card">
+            <span class="pipeline-step-badge">STAGE 02</span>
+            <h4>2. Inbox Analysis</h4>
+            <p>ShieldSense reads incoming emails, extracting message headers, intent vectors, and metadata.</p>
+          </div>
+          <div class="pipeline-card">
+            <span class="pipeline-step-badge">STAGE 03</span>
+            <h4>3. Multi-Signal Investigation</h4>
+            <p>Embedded links and file attachments are evaluated simultaneously as unified evidence.</p>
+          </div>
+          <div class="pipeline-card">
+            <span class="pipeline-step-badge">STAGE 04</span>
+            <h4>4. Risk Segregation</h4>
+            <p>Emails are scored 0–100 and categorized into Safe (e.g. Safe (3)), Suspicious, and Dangerous.</p>
+          </div>
+          <div class="pipeline-card">
+            <span class="pipeline-step-badge">STAGE 05</span>
+            <h4>5. Action & Quarantine</h4>
+            <p>Review transparent forensic evidence and isolate threats with non-destructive quarantine.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI RISK ANALYSIS ARCHITECTURE SECTION -->
+      <section class="architecture-section" id="risk-analysis">
+        <div style="margin-bottom: 24px;">
+          <h2 style="font-size: 1.7rem; font-weight:800; color:var(--text-bright);">AI Risk Analysis Architecture</h2>
+          <p style="font-size: 0.9rem; color:var(--text-muted); margin-top:4px;">Why ShieldSense inspects all signals together rather than isolated scanners.</p>
+        </div>
+
+        <div class="architecture-diagram-card">
+          <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-bright); margin-bottom: 6px;">INCOMING GMAIL MESSAGE</div>
+          <p style="font-size: 0.84rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 20px;">
+            A single email is evaluated as a combined security graph consisting of 4 forensic inspection layers:
+          </p>
+
+          <div class="tree-flow-row">
+            <div class="tree-node-box"><h5>👤 Sender Analysis</h5><p>Domain reputation & spoofing checks</p></div>
+            <div class="tree-node-box"><h5>✉️ Message / Intent</h5><p>Urgency markers & credential phishing</p></div>
+            <div class="tree-node-box"><h5>🔗 Link Analysis</h5><p>Insecure HTTP & direct IP hostnames</p></div>
+            <div class="tree-node-box"><h5>📎 Attachment Analysis</h5><p>Dangerous extensions & invoice hooks</p></div>
+          </div>
+
+          <div style="font-size: 1.25rem; font-weight: 900; color: var(--cyber-cyan); margin-top: 20px;">&darr; OVERVIEW RISK SCORE (0 – 100) &darr;</div>
+          <div style="display:flex; justify-content:center; gap:16px; margin-top:10px; font-size:0.88rem; font-weight:700;">
+            <span style="color:var(--color-safe);">🟢 SAFE (0–30)</span>
+            <span style="color:var(--color-suspicious);">🟠 SUSPICIOUS (31–69)</span>
+            <span style="color:var(--color-dangerous);">🔴 DANGEROUS (70–100)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING SECTION -->
+      <section class="pricing-section" id="pricing">
+        <div class="pricing-header-center">
+          <h2>Simple, Transparent Protection Plans</h2>
+          <p>Get instant AI security for your Gmail inbox. Start free today and upgrade as you need.</p>
+        </div>
+
+        <div class="pricing-grid">
+          
+          <!-- Plan 1: FREE TRIAL -->
+          <div class="pricing-card">
+            <div>
+              <div class="pricing-plan-name">FREE TRIAL</div>
+              <div class="pricing-plan-sub">Limited trial access to ShieldSense.</div>
+
+              <div class="pricing-price-wrap">
+                <span class="pricing-currency-symbol">₹</span>
+                <span class="pricing-price-val">0</span>
+              </div>
+
+              <ul class="pricing-features-list">
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Gmail connection</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Basic email threat analysis</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Link analysis</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Attachment risk detection</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Threat Inbox</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Basic risk explanations</span></li>
+              </ul>
+            </div>
+
+            <button class="btn-pricing-trial" id="btn-start-free-trial">
+              Start Free Trial
+            </button>
+          </div>
+
+          <!-- Plan 2: SHIELDSENSE PRO (Popular) -->
+          <div class="pricing-card featured-card">
+            <span class="popular-plan-badge">POPULAR PROTECTION</span>
+            <div>
+              <div class="pricing-plan-name">SHIELDSENSE PRO</div>
+              <div class="pricing-plan-sub">For individual users who want continuous protection.</div>
+
+              <div class="pricing-price-wrap">
+                <span class="pricing-currency-symbol">₹</span>
+                <span class="pricing-price-val">199</span>
+                <span class="pricing-period">/ month</span>
+              </div>
+
+              <ul class="pricing-features-list">
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Continuous Gmail monitoring</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Email risk analysis</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Link analysis</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Attachment analysis</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Threat Inbox</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Quarantine recommendations</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Detailed risk explanations</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Scan history</span></li>
+              </ul>
+            </div>
+
+            <button class="btn-pricing-paid btn-choose-paid-plan" data-plan="ShieldSense Pro (₹199/mo)">
+              Choose Pro
+            </button>
+          </div>
+
+          <!-- Plan 3: SHIELDSENSE ADVANCED -->
+          <div class="pricing-card">
+            <div>
+              <div class="pricing-plan-name">SHIELDSENSE ADVANCED</div>
+              <div class="pricing-plan-sub">For users who need stronger protection and more detailed security insights.</div>
+
+              <div class="pricing-price-wrap">
+                <span class="pricing-currency-symbol">₹</span>
+                <span class="pricing-price-val">399</span>
+                <span class="pricing-period">/ month</span>
+              </div>
+
+              <ul class="pricing-features-list">
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Everything in Pro</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Advanced threat analysis</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Detailed security reports</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Extended scan history</span></li>
+                <li class="pricing-feature-item"><span class="pricing-check">✓</span><span>Priority protection features</span></li>
+              </ul>
+            </div>
+
+            <button class="btn-pricing-paid btn-choose-paid-plan" data-plan="ShieldSense Advanced (₹399/mo)">
+              Choose Advanced
+            </button>
+          </div>
+
+        </div>
+
+        <p style="text-align:center; font-size:0.78rem; color:var(--text-dim); margin-top:20px;">
+          * Prices displayed in Indian Rupees (₹). MVP demonstration pricing; payment gateway integration easily configurable.
+        </p>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="final-cta-section">
+        <div class="final-cta-box">
+          <h2>Protect your Gmail with ShieldSense</h2>
+          <p>Experience intelligent threat detection for phishing emails, deceptive links, and dangerous attachments with zero setup.</p>
+          <button class="btn-connect-gmail btn-trigger-connect-gmail">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            Connect Gmail →
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div><strong>ShieldSense &copy; 2026</strong> &bull; "Your Gmail, protected by AI"</div>
+          <div style="color:var(--text-dim); font-size:0.8rem;">Gmail-Centered Cybersecurity Platform &bull; Real-time Multi-Signal Scanning</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==========================================
+       VIEW: EMAIL ENTRY / GMAIL CONNECTION STEP
+       ========================================== -->
+  <div id="view-connect" class="app-view">
+    <div class="connect-screen-container">
+      <div class="connect-card">
+        <!-- ShieldSense Icon & Branding -->
+        <div class="connect-card-brand">
+          <div class="brand-icon-box" style="width: 48px; height: 48px; margin: 0 auto 16px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <h2>Connect your Gmail account</h2>
+          <p class="connect-card-subtext">Enter your email to start scanning your inbox for threats</p>
+        </div>
+
+        <!-- Form -->
+        <form id="form-connect-email" novalidate>
+          <div class="connect-input-group">
+            <label for="input-connect-email" class="connect-input-label">Gmail Address</label>
+            <div class="connect-input-wrapper">
+              <span class="connect-input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </span>
+              <input 
+                type="email" 
+                id="input-connect-email" 
+                class="connect-email-input" 
+                placeholder="name@gmail.com" 
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="connect-error-msg" id="connect-email-error"></div>
+          </div>
+
+          <!-- Quick Demo Chip -->
+          <div class="connect-demo-hint">
+            <span>Demo email:</span>
+            <button type="button" class="btn-demo-email-chip" id="btn-fill-demo-email">
+              alex.security@gmail.com
+            </button>
+          </div>
+
+          <!-- Primary Submit Button -->
+          <button type="submit" class="btn-connect-primary" id="btn-submit-email-connect">
+            <span>Connect & Scan Inbox →</span>
+          </button>
+        </form>
+
+        <!-- Trust / Security Footnote -->
+        <div class="connect-security-footnote">
+          <div class="connect-security-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-cyan)" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>Read-only scan permissions</span>
+          </div>
+          <div class="connect-security-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-safe)" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>Multi-signal AI heuristic protection</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       VIEW 2: CONNECTED GMAIL DASHBOARD (TWO-COLUMN APP LAYOUT)
+       ========================================== -->
+  <div id="view-dashboard" class="app-view">
+    <div class="connected-dashboard-layout">
+      
+      <!-- LEFT SIDEBAR -->
+      <aside class="dash-sidebar">
+        <div>
+          <!-- Brand Header with PROTECTED Status Badge -->
+          <div class="sidebar-header">
+            <div class="sidebar-brand-row" id="dash-logo-btn" title="Return to Dashboard">
+              <div class="brand-icon-box" style="width:34px; height:34px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </div>
+              <div>
+                <h2 style="font-size: 1.15rem; font-weight: 800; line-height: 1; color: var(--text-bright);">ShieldSense</h2>
+              </div>
+            </div>
+
+            <!-- Small "PROTECTED" status badge underneath -->
+            <div class="sidebar-protected-pill">
+              <span class="sidebar-protected-dot"></span>
+              <span>PROTECTED</span>
+            </div>
+          </div>
+
+          <!-- Nav List with Icons & Badges -->
+          <ul class="sidebar-nav-list">
+            <!-- 1. Overview / Inbox (Active / Rounded Highlight) -->
+            <li>
+              <a href="#dashboard/inbox" class="sidebar-nav-item active" id="dash-nav-inbox" data-pane="dash-pane-inbox">
+                <div class="nav-item-content">
+                  <span class="nav-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </span>
+                  <span>Overview / Inbox</span>
+                </div>
+                <span class="nav-badge-pill" id="sidebar-count-inbox">5</span>
+              </a>
+            </li>
+
+            <!-- 2. Threat Inbox (Red / Warning Badge) -->
+            <li>
+              <a href="#threat-inbox" class="sidebar-nav-item" id="dash-nav-threats" data-pane="dash-pane-threats">
+                <div class="nav-item-content">
+                  <span class="nav-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                      <line x1="12" y1="9" x2="12" y2="13"></line>
+                      <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                  </span>
+                  <span>Threat Inbox</span>
+                </div>
+                <span class="nav-badge-pill warning" id="sidebar-count-threats">3</span>
+              </a>
+            </li>
+
+            <!-- 3. Live AI Scanner ("LIVE" Badge in Teal/Cyan) -->
+            <li>
+              <a href="#dashboard/live-scanner" class="sidebar-nav-item" id="dash-nav-scanner" data-pane="dash-pane-scanner">
+                <div class="nav-item-content">
+                  <span class="nav-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                  </span>
+                  <span>Live AI Scanner</span>
+                </div>
+                <span class="nav-badge-pill live-cyan">LIVE</span>
+              </a>
+            </li>
+
+            <!-- 4. Attachments -->
+            <li>
+              <a href="#dashboard/attachments" class="sidebar-nav-item" id="dash-nav-attachments" data-pane="dash-pane-attachments">
+                <div class="nav-item-content">
+                  <span class="nav-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
+                    </svg>
+                  </span>
+                  <span>Attachments</span>
+                </div>
+                <span class="nav-badge-pill" id="sidebar-count-attachments">2</span>
+              </a>
+            </li>
+
+            <!-- 5. Links -->
+            <li>
+              <a href="#dashboard/links" class="sidebar-nav-item" id="dash-nav-links" data-pane="dash-pane-links">
+                <div class="nav-item-content">
+                  <span class="nav-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                  </span>
+                  <span>Links</span>
+                </div>
+                <span class="nav-badge-pill" id="sidebar-count-links">4</span>
+              </a>
+            </li>
+
+            <!-- 6. Pricing & Plans -->
+            <li>
+              <a href="#pricing" class="sidebar-nav-item" id="dash-nav-pricing">
+                <div class="nav-item-content">
+                  <span class="nav-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="12" y1="1" x2="12" y2="23"></line>
+                      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                  </span>
+                  <span>Pricing & Plans</span>
+                </div>
+              </a>
+            </li>
+
+            <!-- 7. Settings -->
+            <li>
+              <a href="#dashboard/settings" class="sidebar-nav-item" id="dash-nav-settings" data-pane="dash-pane-settings">
+                <div class="nav-item-content">
+                  <span class="nav-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="3"></circle>
+                      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                  </span>
+                  <span>Settings</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bottom of Sidebar: Utility Icons + Exit Link -->
+        <div class="sidebar-bottom-utilities">
+          <div class="utility-icons-row">
+            <!-- Favorites / Heart Icon -->
+            <button class="utility-btn" title="Favorites" aria-label="Favorites">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+            <!-- History / Clock Icon -->
+            <button class="utility-btn" title="Scan History" aria-label="Scan History">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </button>
+            <!-- More / ... Icon -->
+            <button class="utility-btn" title="More Options" aria-label="More Options">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="19" cy="12" r="1"></circle>
+                <circle cx="5" cy="12" r="1"></circle>
+              </svg>
+            </button>
+          </div>
+
+          <button class="btn-sidebar-landing" id="btn-back-to-landing">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Exit to Landing Page</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT AREA -->
+      <div class="dash-main-container">
+        
+        <!-- Header Row -->
+        <header class="dash-header-section">
+          <div class="header-top-row">
+            <div>
+              <div class="header-heading-wrap">
+                <h2 id="dash-current-title">Gmail Inbox</h2>
+                <!-- Pill Badge "Live AI Protection Active" -->
+                <div class="live-protection-badge">
+                  <span class="status-dot"></span>
+                  <span id="dash-account-email-pill">Protected: alex.security@gmail.com</span>
+                </div>
+              </div>
+              <p class="header-subtitle" id="dash-current-subtitle">
+                ShieldSense scans every inbound email, attachment, and embedded link automatically.
+              </p>
+            </div>
+
+            <!-- Top-Right Controls: Search Bar + Segmented Tab Control -->
+            <div class="header-controls-wrap">
+              <!-- Search Bar -->
+              <div class="dash-search-container">
+                <svg class="search-icon-svg-box" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="dash-search-input" class="dash-search-box-input" placeholder="Search emails...">
+              </div>
+
+              <!-- Segmented Tab Control: All (5) / Safe (5) / Flagged (0) -->
+              <div class="segmented-tab-group">
+                <button class="segmented-tab-btn active" data-tab-filter="all">All (<span id="tab-count-all">5</span>)</button>
+                <button class="segmented-tab-btn" data-tab-filter="safe">Safe (<span id="tab-count-safe">5</span>)</button>
+                <button class="segmented-tab-btn flagged-tab" data-tab-filter="flagged">Flagged (<span id="tab-count-flagged">0</span>)</button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Body Content Panes -->
+        <main class="dash-content-body">
+          
+          <!-- PANE 1: GMAIL INBOX -->
+          <div class="dash-pane active" id="dash-pane-inbox">
+            <div class="email-list-container" id="dash-emails-container">
+              <!-- Dynamically populated by app.js with the 5 mock emails -->
+            </div>
+          </div>
+
+          <!-- PANE 2: THREAT INBOX -->
+          <div class="dash-pane" id="dash-pane-threats">
+            <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid var(--color-dangerous-border); border-radius: var(--radius-md); padding: 18px 22px; margin-bottom: 22px; display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <h4 style="color: var(--text-bright); font-size: 1.1rem; font-weight: 800;">Suspicious & Dangerous Detected Messages</h4>
+                <p style="color: var(--text-muted); font-size: 0.84rem;">AI multi-signal security evaluation has flagged these incoming Gmail items as high or moderate risk.</p>
+              </div>
+              <div style="font-size: 0.86rem; font-weight: 800; color: var(--color-dangerous);" id="threats-active-count-label">
+                Active Threats: 3
+              </div>
+            </div>
+            <div class="email-list-container" id="dash-threats-container"></div>
+          </div>
+
+          <!-- PANE 3: LIVE AI SCANNER -->
+          <div class="dash-pane" id="dash-pane-scanner">
+            <div style="background: rgba(0, 240, 255, 0.08); border: 1px solid rgba(0, 240, 255, 0.25); border-radius: var(--radius-md); padding: 20px; margin-bottom: 20px;">
+              <h4 style="color: var(--text-bright); font-size: 1.1rem; font-weight: 800;">Live Multi-Signal AI Security Engine</h4>
+              <p style="color: var(--text-muted); font-size: 0.86rem; margin-top:4px;">Real-time inspection of inbound message streams across heuristic neural layers.</p>
+            </div>
+            <div class="tree-flow-row" style="margin: 0 0 20px;">
+              <div class="tree-node-box"><h5>👤 Sender Analysis</h5><p>Domain SPF/DKIM verification</p></div>
+              <div class="tree-node-box"><h5>✉️ Intent Vectors</h5><p>Urgency & credential harvesting checks</p></div>
+              <div class="tree-node-box"><h5>🔗 Link Scanning</h5><p>Redirect bypass & IP reputation</p></div>
+              <div class="tree-node-box"><h5>📎 File Forensics</h5><p>Signature & macro analysis</p></div>
+            </div>
+          </div>
+
+          <!-- PANE 4: ATTACHMENTS AGGREGATION -->
+          <div class="dash-pane" id="dash-pane-attachments">
+            <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: var(--radius-md); padding: 16px 20px; margin-bottom: 20px;">
+              <h4 style="color: var(--text-bright); font-size: 1.05rem; font-weight: 800;">Discovered Gmail Attachments</h4>
+              <p style="color: var(--text-muted); font-size: 0.84rem;">Extracted automatically from inbound Gmail messages and verified by AI file heuristics.</p>
+            </div>
+
+            <div class="aggregation-table-wrap">
+              <table class="aggregation-table">
+                <thead>
+                  <tr>
+                    <th>Attachment Name</th>
+                    <th>Size</th>
+                    <th>Origin Email Subject</th>
+                    <th>Sender</th>
+                    <th>Risk Rating</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="dash-attachments-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- PANE 5: LINKS AGGREGATION -->
+          <div class="dash-pane" id="dash-pane-links">
+            <div style="background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.25); border-radius: var(--radius-md); padding: 16px 20px; margin-bottom: 20px;">
+              <h4 style="color: var(--text-bright); font-size: 1.05rem; font-weight: 800;">Discovered Embedded Links</h4>
+              <p style="color: var(--text-muted); font-size: 0.84rem;">Extracted automatically from email bodies and checked against malicious URL patterns.</p>
+            </div>
+
+            <div class="aggregation-table-wrap">
+              <table class="aggregation-table">
+                <thead>
+                  <tr>
+                    <th>Target URL / Domain</th>
+                    <th>Origin Email Subject</th>
+                    <th>Sender</th>
+                    <th>Risk Rating</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="dash-links-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- PANE 6: SETTINGS -->
+          <div class="dash-pane" id="dash-pane-settings">
+            <div class="settings-card-box">
+              <h3>ShieldSense Security & Stream Settings</h3>
+              <p>Manage real-time Gmail inbox protection, notification thresholds, and Google OAuth 2.0 integration.</p>
+
+              <div class="form-group">
+                <label class="form-label" for="settings-client-id">Google OAuth 2.0 Client ID (Optional)</label>
+                <input type="text" id="settings-client-id" class="form-input" placeholder="e.g. 123456789-abc.apps.googleusercontent.com">
+              </div>
+
+              <div style="display:flex; gap:12px; margin-top:20px;">
+                <button class="btn-connect-gmail" id="btn-save-oauth-settings" style="padding:10px 20px; font-size:0.86rem;">
+                  Save & Connect Live Stream
+                </button>
+                <button class="btn-secondary-link" id="btn-reset-demo-stream" style="padding:10px 18px; font-size:0.86rem;">
+                  Reload Mock Inbox Stream
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================
+       FORENSIC INVESTIGATION DRAWER / MODAL
+       ========================================== -->
+  <div class="investigation-drawer-overlay" id="investigation-overlay">
+    <div class="investigation-drawer">
+      
+      <div class="drawer-header">
+        <div class="drawer-title-group">
+          <h3>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyber-cyan)" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            ShieldSense Investigation
+          </h3>
+          <p id="drawer-email-date">Message Audit Record</p>
+        </div>
+
+        <button class="btn-close-drawer" id="btn-close-investigation" aria-label="Close Investigation">✕</button>
+      </div>
+
+      <!-- Risk Score Card -->
+      <div class="investigation-score-card safe" id="drawer-score-card">
+        <div>
+          <div style="font-size:0.75rem; color:var(--text-dim); text-transform:uppercase; font-weight:700;">Overall Threat Score</div>
+          <div class="investigation-score-val" id="drawer-score-num">Safe (3)</div>
+          <div style="font-size:0.82rem; font-weight:700;" id="drawer-threat-label">LOW RISK • VERIFIED SAFE</div>
+        </div>
+
+        <div id="drawer-classification-badge" class="risk-pill-badge safe" style="font-size:0.86rem;">
+          🟢 Safe
+        </div>
+      </div>
+
+      <!-- Plain Language Reason Box -->
+      <div class="why-flagged-box" id="drawer-why-flagged-box">
+        <div class="why-flagged-title">AI SCAN ANALYSIS</div>
+        <p class="why-flagged-text" id="drawer-why-flagged-text">
+          ShieldSense inspected this email across sender reputation, message intent, embedded links, and attachments. No malicious signals or phishing indicators detected.
+        </p>
+      </div>
+
+      <!-- Email Information -->
+      <div class="evidence-section-block">
+        <div class="evidence-block-title">
+          <span>✉️ EMAIL INFORMATION & ANALYSIS</span>
+        </div>
+        <div class="evidence-item-card" style="margin-bottom:8px;">
+          <div class="evidence-content" style="width:100%;">
+            <h5 id="drawer-email-subject">Subject</h5>
+            <p id="drawer-email-sender" style="color:var(--text-bright); font-weight:600;">From: sender</p>
+            <p id="drawer-email-body-snippet" style="font-size:0.78rem; color:var(--text-dim); margin-top:4px; font-style:italic;"></p>
+          </div>
+        </div>
+
+        <div class="evidence-items-list" id="drawer-intent-findings-list"></div>
+      </div>
+
+      <!-- Links Found Section -->
+      <div class="evidence-section-block">
+        <div class="evidence-block-title">
+          <span>🔗 LINKS FOUND</span>
+        </div>
+        <div class="evidence-items-list" id="drawer-links-findings-list"></div>
+      </div>
+
+      <!-- Attachments Found Section -->
+      <div class="evidence-section-block">
+        <div class="evidence-block-title">
+          <span>📎 ATTACHMENTS FOUND</span>
+        </div>
+        <div class="evidence-items-list" id="drawer-attachments-findings-list"></div>
+      </div>
+
+      <!-- Recommendation -->
+      <div class="drawer-recommendation-box">
+        <div style="font-size:0.74rem; font-weight:800; text-transform:uppercase; color:var(--cyber-blue); margin-bottom:4px;">
+          RECOMMENDED ACTION
+        </div>
+        <div style="font-size:1rem; font-weight:800; color:var(--text-bright);" id="drawer-recommendation-title">
+          KEEP IN INBOX
+        </div>
+        <p style="font-size:0.82rem; color:var(--text-main); margin-top:4px;" id="drawer-recommendation-body">
+          This message is safe to read. All attachments and links have passed security inspection.
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="drawer-action-buttons">
+        <button class="btn-quarantine-action" id="drawer-btn-quarantine">
+          🛡 Move to Quarantine
+        </button>
+        <button class="btn-keep-inbox" id="drawer-btn-keep">
+          Keep in Inbox
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="analyzer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
