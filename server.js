@@ -22,7 +22,12 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 app.use(cookieParser(process.env.SESSION_SECRET || 'shieldsense_secret'));
-app.use(express.static(path.join(__dirname)));
+// Serve only the frontend files (never server.js, .env or package.json)
+const PUBLIC_FILES = ['index.html', 'style.css', 'analyzer.js', 'app.js'];
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+PUBLIC_FILES.forEach((file) => {
+  app.get('/' + file, (req, res) => res.sendFile(path.join(__dirname, file)));
+});
 
 // In-Memory Token Sessions (Keyed by session ID)
 const SESSIONS = new Map();
