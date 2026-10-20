@@ -1,4 +1,6 @@
-# ShieldSense
+ # ARGUS
+
+ARGUS (also called ShieldSense in the app) is an AI email security agent that flags suspicious emails (phishing and spam) by connecting to Gmail through the Gmail API and Google OAuth. Built as a team of 2 and demoed to judges.
 
 > **"Your Gmail, protected by AI."**  
 > *AI-inspired threat detection for phishing emails, malicious links, scams, and suspicious attachments.*
@@ -70,7 +72,12 @@ Clicking any email, threat item, attachment, or link opens the deep forensic pan
 ## ⚡ Quick Start & Judge Demonstration
 
 ### How to Run:
-Open **`index.html`** in any web browser.
+### How to Run:
+1. Clone the repository
+2. Run `npm install`
+3. Copy `.env.example` to `.env` and add your own Google OAuth credentials
+4. Run `npm start` (or `node server.js`)
+5. Open `http://localhost:3000` in your browser
 
 ### 2-Minute Presentation Script:
 1. **Landing Page**: Show the hero section (*"Your Gmail, protected by AI"*) with 4 trust indicators and the live product preview card.
